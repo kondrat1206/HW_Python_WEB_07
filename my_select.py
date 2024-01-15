@@ -61,7 +61,7 @@ def select_4(session):
 
 def select_5(session):
 
-    teacher = 'Daniel Rodgers'
+    teacher = 'Brian Proctor'
     desc = f'-- Знайти які предмети читає певний викладач, {teacher}'
     print(desc)
     query = session.query(Subject.name.label('subject_name')).join(Teacher, Subject.teacher_id == Teacher.id).filter(Teacher.name == teacher)
@@ -100,7 +100,7 @@ def select_7(session):
 
 def select_8(session):
     
-    teacher = 'Daniel Rodgers'
+    teacher = 'Brian Proctor'
     desc = f'-- Знайти середній бал, який ставить певний викладач, {teacher}'
     print(desc)
     subquery = session.query(
@@ -116,7 +116,7 @@ def select_8(session):
 
 def select_9(session):
     
-    student = 'Jennifer Thomas'
+    student = 'Ruth Pruitt'
     desc = f'-- Знайти список предметів, по якім певний студент має оцінки, {student}'
     print(desc)
     query = session.query(Subject.name.label('subject_name')).join(Grade, Subject.id == Grade.subject_id).join(Student, Grade.student_id == Student.id).filter(Student.name == student).distinct()
@@ -127,8 +127,8 @@ def select_9(session):
 
 def select_10(session):
     
-    student = 'Jennifer Thomas'
-    teacher = 'Daniel Rodgers'
+    student = 'Ruth Pruitt'
+    teacher = 'Brian Proctor'
     desc = f'-- Список курсів, які певному студенту, {student} читає певний викладач, {teacher}'
     print(desc)
     query = session.query(Subject.name.label('subject_name')).join(Grade, Subject.id == Grade.subject_id).join(Student, Grade.student_id == Student.id).join(Teacher, Subject.teacher_id == Teacher.id).filter(Student.name == student, Teacher.name == teacher).distinct()
@@ -139,8 +139,8 @@ def select_10(session):
 
 def select_11(session):
     
-    student = 'Jennifer Thomas'
-    teacher = 'Daniel Rodgers'
+    student = 'Ruth Pruitt'
+    teacher = 'Brian Proctor'
     desc = f'-- Середній бал, який певний викладач, {teacher} ставить певному студентові, {student}'
     print(desc)
     subquery = session.query(
